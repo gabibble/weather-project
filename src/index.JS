@@ -54,9 +54,11 @@ function displayForecastToday(response) {
   details.innerHTML = `Humidity: ${humidity}% <br> Wind: ${wind} mph`;
   let mainIcon = document.querySelector(".today");
   if (mainTemp >= 92) {
+    mainIcon.classList = "icon today";
     mainIcon.classList.add("vhot");
   } else {
     if (mainTemp >= 80 && mainTemp < 92) {
+      mainIcon.classList = "icon today";
       mainIcon.classList.add("hot");
     } else {
       if (mainTemp >= 68 && mainTemp < 80) {
