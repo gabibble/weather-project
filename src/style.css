@@ -52,6 +52,13 @@ p {
 footer {
   text-align: center;
 }
+a {
+  color: #bef5e2;
+  font-weight: 400;
+}
+a:hover {
+  color: #89fcd4;
+}
 .container {
   max-width: 1000px;
   border-radius: 20px;
