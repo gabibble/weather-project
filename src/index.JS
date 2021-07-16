@@ -62,17 +62,22 @@ function displayForecastToday(response) {
       mainIcon.classList.add("hot");
     } else {
       if (mainTemp >= 68 && mainTemp < 80) {
+        mainIcon.classList = "icon today";
         mainIcon.classList.add("warm");
       } else {
         if (mainTemp >= 56 && mainTemp < 68) {
+          mainIcon.classList = "icon today";
           mainIcon.classList.add("mild");
         } else {
           if (mainTemp >= 44 && mainTemp < 56) {
+            mainIcon.classList = "icon today";
             mainIcon.classList.add("cool");
           } else {
             if (mainTemp > 32 && mainTemp < 44) {
+              mainIcon.classList = "icon today";
               mainIcon.classList.add("cold");
             } else {
+              mainIcon.classList = "icon today";
               mainIcon.classList.add("freeze");
             }
           }
