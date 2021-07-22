@@ -129,7 +129,7 @@ a:hover {
   background-color: rgb(194, 194, 194);
   color: white;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 10px 0 auto;
 }
 
 .today {
@@ -162,23 +162,30 @@ a:hover {
   font-weight: bold;
 }
 .vhot {
-  background-color: #ff3b1a;
+  background-color: #d38784;
+  background: linear-gradient(to top, #ee9f87 0%, #d285a4 100%);
 }
 .hot {
-  background-color: #fa388d;
+  background-color: #d285a4;
+  background: linear-gradient(to top, #d285a4 0%, #c586bb 100%);
 }
 .warm {
-  background-color: #f455f7;
+  background-color: #d186c5;
+  background: linear-gradient(to top, #d186c5 0%, #bc87d0 100%);
 }
 .mild {
-  background-color: #a671f5;
+  background-color: #bc87d0;
+  background: linear-gradient(to top, #bc87d0 0%, #9d87d0 100%);
 }
 .cool {
-  background-color: #8c9ef4;
+  background-color: #9d87d0;
+  background: linear-gradient(to top, #9d87d0 0%, #8892cf 100%);
 }
 .cold {
-  background-color: #a5e1f4;
+  background-color: #8892cf;
+  background: linear-gradient(to top, #8892cf 0%, #89b1ce 100%);
 }
 .freeze {
-  background-color: #bef5e2;
+  background-color: #89b1ce;
+  background: linear-gradient(to top, #89b1ce 0%, #d0e4f5 100%);
 }
