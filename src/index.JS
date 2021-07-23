@@ -6,6 +6,14 @@ function displayLocalTime() {
   let year = today.getFullYear();
   let hour = today.getHours();
   let min = today.getMinutes();
+  let ampm = "AM";
+  if (min < 10) {
+    min = `0${min}`;
+  }
+  if (hour > 12) {
+    hour = hour - 12;
+    ampm = "PM";
+  }
   let days = [
     "Sunday",
     "Monday",
@@ -33,7 +41,7 @@ function displayLocalTime() {
   let month = months[today.getMonth()];
 
   let currentTime = document.querySelector("#currentTime");
-  currentTime.innerHTML = `${day}, ${month} ${date}, ${year}`;
+  currentTime.innerHTML = `${day}, ${month} ${date}, ${hour}:${min} ${ampm}`;
 }
 displayLocalTime();
 
@@ -54,6 +62,10 @@ function displayForecastToday(response) {
   let wind = Math.round(response.data.wind.speed);
   let details = document.querySelector("#details");
   details.innerHTML = `Humidity: ${humidity}% <br> Wind: ${wind} mph`;
+  let time = response.data.dt;
+  //displayLocalTime(time * 1000);
+  let timeDisplay = document.querySelector(".currentTime2");
+
   let mainIcon = document.querySelector(".today");
   if (mainTemp >= 92) {
     mainIcon.classList = "icon today";

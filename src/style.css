@@ -60,10 +60,6 @@ a:hover {
   color: #89fcd4;
 }
 
-small {
-  font-size: 12px;
-}
-
 .container {
   max-width: 1000px;
   border-radius: 20px;
@@ -94,6 +90,13 @@ small {
   background-color: #89fcd4;
   border: 3px solid #89fcd4;
 }
+
+.unit {
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  top: -19px;
+}
 .local {
   background-color: rgb(146, 146, 146);
   border: 3px solid rgb(146, 146, 146);
@@ -110,7 +113,12 @@ small {
   background-color: rgb(122, 122, 122);
   border: 3px solid rgb(122, 122, 122);
 }
+
 .description {
+  font-weight: 300;
+}
+
+.description:first-letter {
   text-transform: capitalize;
 }
 .convert {
@@ -165,7 +173,7 @@ small {
 }
 
 .temp {
-  font-weight: bold;
+  font-weight: 400;
 }
 .vhot {
   background-color: #d38784;
