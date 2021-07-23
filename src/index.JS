@@ -1,4 +1,4 @@
-getCurrentPosition();
+//getCurrentPosition();
 
 function displayLocalTime() {
   let today = new Date();
@@ -6,13 +6,13 @@ function displayLocalTime() {
   let year = today.getFullYear();
   let hour = today.getHours();
   let min = today.getMinutes();
-  let ampm = "AM";
+  let ampm = "am";
   if (min < 10) {
     min = `0${min}`;
   }
   if (hour > 12) {
     hour = hour - 12;
-    ampm = "PM";
+    ampm = "pm";
   }
   let days = [
     "Sunday",
@@ -62,10 +62,11 @@ function displayForecastToday(response) {
   let wind = Math.round(response.data.wind.speed);
   let details = document.querySelector("#details");
   details.innerHTML = `Humidity: ${humidity}% <br> Wind: ${wind} mph`;
-  let time = response.data.dt;
+  //let time = response.data.dt;
   //displayLocalTime(time * 1000);
-  let timeDisplay = document.querySelector(".currentTime2");
-
+  let iconElement = document.querySelector("#weather-icon");
+  let iconCode = response.data.weather[0].icon;
+  iconElement.innerHTML = `<img class="main" src="http://openweathermap.org/img/wn/${iconCode}@2x.png">`;
   let mainIcon = document.querySelector(".today");
   if (mainTemp >= 92) {
     mainIcon.classList = "icon today";
