@@ -59,6 +59,11 @@ a {
 a:hover {
   color: #89fcd4;
 }
+
+small {
+  font-size: 12px;
+}
+
 .container {
   max-width: 1000px;
   border-radius: 20px;
@@ -130,6 +135,7 @@ a:hover {
   color: white;
   text-align: center;
   margin: 0 10px 0 auto;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .today {
