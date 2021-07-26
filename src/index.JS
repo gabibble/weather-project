@@ -68,6 +68,8 @@ function displayForecastToday(response) {
   let iconCode = response.data.weather[0].icon;
   iconElement.innerHTML = `<img class="main" src="http://openweathermap.org/img/wn/${iconCode}@2x.png">`;
   let mainIcon = document.querySelector(".today");
+  let units = document.querySelector(".unit");
+  units.innerHTML = " °F";
 
   fahrGlobal = response.data.main.temp;
 
@@ -136,16 +138,13 @@ function showCelc() {
   mainTemp.innerHTML = Math.round(celcTemp);
   let units = document.querySelector(".unit");
   units.innerHTML = " °C";
-
-  //mainTemp.innerHTML = (72 − 32) * 5/9;
-
-  //let mainTemp = document.querySelector("#main-temp");
-  //mainTemp.innerHTML = "18 °C";
 }
 
 function showFahr() {
-  //let mainTemp = document.querySelector("#main-temp");
-  //mainTemp.innerHTML = "64 °F";
+  let mainTemp = document.querySelector("#main-temp");
+  mainTemp.innerHTML = Math.round(fahrGlobal);
+  let units = document.querySelector(".unit");
+  units.innerHTML = " °F";
 }
 
 let fahrGlobal = null;
