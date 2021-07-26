@@ -1,4 +1,4 @@
-//getCurrentPosition();
+getCurrentPosition();
 
 function displayLocalTime() {
   let today = new Date();
@@ -54,10 +54,10 @@ function displayForecastToday(response) {
   let mainTemp = Math.round(response.data.main.temp);
   let mainTempDisplay = document.querySelector("#main-temp");
   mainTempDisplay.innerHTML = mainTemp;
-  let mainHigh = Math.round(response.data.main.temp_max);
-  let mainLow = Math.round(response.data.main.temp_min);
-  let highLow = document.querySelector("#high-low");
-  highLow.innerHTML = `H <strong>${mainHigh}</strong>°  L <strong>${mainLow}</strong>°`;
+  //let mainHigh = Math.round(response.data.main.temp_max);
+  //let mainLow = Math.round(response.data.main.temp_min);
+  //let highLow = document.querySelector("#high-low");
+  //highLow.innerHTML = `H <strong>${mainHigh}</strong>°  L <strong>${mainLow}</strong>°`;
   let humidity = Math.round(response.data.main.humidity);
   let wind = Math.round(response.data.wind.speed);
   let details = document.querySelector("#details");
@@ -68,6 +68,9 @@ function displayForecastToday(response) {
   let iconCode = response.data.weather[0].icon;
   iconElement.innerHTML = `<img class="main" src="http://openweathermap.org/img/wn/${iconCode}@2x.png">`;
   let mainIcon = document.querySelector(".today");
+
+  fahrGlobal = response.data.main.temp;
+
   if (mainTemp >= 92) {
     mainIcon.classList = "icon today";
     mainIcon.classList.add("vhot");
@@ -128,7 +131,14 @@ let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", citySearch);
 
 function showCelc() {
-  alert("coming soon!");
+  let mainTemp = document.querySelector("#main-temp");
+  let celcTemp = ((fahrGlobal - 32) * 5) / 9;
+  mainTemp.innerHTML = Math.round(celcTemp);
+  let units = document.querySelector(".unit");
+  units.innerHTML = " °C";
+
+  //mainTemp.innerHTML = (72 − 32) * 5/9;
+
   //let mainTemp = document.querySelector("#main-temp");
   //mainTemp.innerHTML = "18 °C";
 }
@@ -137,6 +147,8 @@ function showFahr() {
   //let mainTemp = document.querySelector("#main-temp");
   //mainTemp.innerHTML = "64 °F";
 }
+
+let fahrGlobal = null;
 
 let celc = document.querySelector("#cTemp");
 celc.addEventListener("click", showCelc);
