@@ -147,6 +147,37 @@ function showFahr() {
   units.innerHTML = " °F";
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#six-day-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2">
+            <p class="day">${day}</p>
+            <div class="icon week">
+              <img
+                class="forecast"
+                src="http://openweathermap.org/img/wn/10d@2x.png"
+              />
+            </div>
+            <p class="day 1 temp">
+              <span class="max">72°</span> <span class="min">64°</span>
+            </p>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
+
 let fahrGlobal = null;
 
 let celc = document.querySelector("#cTemp");

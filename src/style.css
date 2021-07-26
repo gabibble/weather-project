@@ -56,14 +56,14 @@ img.main {
   width: 140px;
   object-fit: cover;
   object-position: -10px -30px;
-  filter: saturate(150%);
+  filter: saturate(120%) contrast(130%) brightness(170%) opacity(70%);
   /*position: relative;
   top: -20px;*/
 }
 
 img.forecast {
-  width: 90px;
-  filter: saturate(150%);
+  width: 93px;
+  filter: saturate(120%) contrast(130%) brightness(170%) opacity(70%);
 }
 
 a:hover {
@@ -152,13 +152,13 @@ a:hover {
 
 .cityinfo {
   margin: 0 auto;
-  padding: 15px;
+  padding: 15px 0;
 }
 .icon {
   background-color: rgb(194, 194, 194);
   color: white;
   text-align: center;
-  margin: 0 10px 0 auto;
+  margin: 0 auto;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -173,6 +173,7 @@ a:hover {
   width: 100px;
   height: 100px;
   border-radius: 50px;
+  margin: 10px auto;
 }
 
 .big {
@@ -189,6 +190,10 @@ a:hover {
 
 .temp {
   font-weight: 400;
+}
+
+.min {
+  opacity: 50%;
 }
 .vhot {
   background-color: #d38784;
