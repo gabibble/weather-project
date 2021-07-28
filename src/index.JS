@@ -45,6 +45,13 @@ function displayLocalTime() {
 }
 displayLocalTime();
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=4b4875a4aa1ad99ee265ed1dc59a8d80&units=imperial`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForecast);
+}
+
 function displayForecastToday(response) {
   console.log(response.data);
   let cityDisplay = document.querySelector("#city");
@@ -105,6 +112,8 @@ function displayForecastToday(response) {
       }
     }
   }
+
+  getForecast(response.data.coord);
 }
 
 function citySearch(event) {
@@ -147,7 +156,8 @@ function showFahr() {
   units.innerHTML = " °F";
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#six-day-forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
@@ -175,8 +185,6 @@ function displayForecast() {
 
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
 
 let fahrGlobal = null;
 
