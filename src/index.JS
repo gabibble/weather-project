@@ -156,26 +156,45 @@ function showFahr() {
   units.innerHTML = " °F";
 }
 
+function formatDay(timeStamp) {
+  let date = new Date(timeStamp * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return day;
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
+  let dailyForecast = response.data.daily;
+
   let forecastElement = document.querySelector("#six-day-forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
-
-  days.forEach(function (day) {
+  dailyForecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
           <div class="col-2">
-            <p class="day">${day}</p>
+            <p class="day">${formatDay(forecastDay.dt)}</p>
             <div class="icon week">
               <img
                 class="forecast"
-                src="http://openweathermap.org/img/wn/10d@2x.png"
+                src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
               />
             </div>
             <p class="day 1 temp">
-              <span class="max">72°</span> <span class="min">64°</span>
+              <span class="max">${
+                forecastDay.temp.max
+              }°</span> <span class="min">${forecastDay.temp.min}°</span>
             </p>
           </div>
         `;
