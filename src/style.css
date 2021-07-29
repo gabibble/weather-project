@@ -135,18 +135,6 @@ a:hover {
 .description:first-letter {
   text-transform: capitalize;
 }
-.convert {
-  background-color: rgb(194, 194, 194);
-  border: rgb(194, 194, 194);
-  font-size: 12px;
-  margin: 2px;
-  color: black;
-}
-
-.convert:hover {
-  background-color: rgb(158, 158, 158);
-  border: rgb(194, 194, 194);
-}
 
 .cityinfo {
   margin: 0 auto;
@@ -156,7 +144,6 @@ a:hover {
   color: white;
   text-align: center;
   margin: auto;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   max-width: 250px;
   height: 250px;
   padding: 35px;
@@ -185,23 +172,30 @@ a:hover {
   opacity: 50%;
 }
 .vhot {
-  background: linear-gradient(to top, #ee9f87 0%, #d285a4 100%);
+  background: linear-gradient(to top, #e490b2 0%, #f0a37f 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .hot {
-  background: linear-gradient(to top, #d285a4 0%, #c586bb 100%);
+  background: linear-gradient(to top, #da93ce 0%, #e7909c 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .warm {
-  background: linear-gradient(to top, #d186c5 0%, #bc87d0 100%);
+  background: linear-gradient(to top, #b387d0 0%, #d186c5 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .mild {
-  background: linear-gradient(to top, #bc87d0 0%, #9d87d0 100%);
+  background: linear-gradient(to top, #9287d0 0%, #bc87d0 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .cool {
-  background: linear-gradient(to top, #9d87d0 0%, #8892cf 100%);
+  background: linear-gradient(to top, #8baedd 0%, #9d87d0 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .cold {
-  background: linear-gradient(to top, #8892cf 0%, #89b1ce 100%);
+  background: linear-gradient(to top, #95bdda 0%, #9aa4e7 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
 .freeze {
   background: linear-gradient(to top, #89b1ce 0%, #d0e4f5 100%);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
