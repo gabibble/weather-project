@@ -1,9 +1,5 @@
 getCurrentPosition();
 
-let fahrGlobal = null;
-let fahrGlobalHigh = null;
-let fahrGlobalLow = null;
-
 function displayLocalTime() {
   let today = new Date();
   let date = today.getDate();
@@ -75,8 +71,6 @@ function displayForecastToday(response) {
   let mainIcon = document.querySelector(".today");
   let units = document.querySelector(".unit");
   units.innerHTML = " °F";
-
-  fahrGlobal = response.data.main.temp;
 
   if (mainTemp >= 92) {
     mainIcon.classList = "icon today";
@@ -197,30 +191,3 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
-
-function showCelc() {
-  let mainTemp = document.querySelector("#main-temp");
-  let celcTemp = ((fahrGlobal - 32) * 5) / 9;
-  mainTemp.innerHTML = Math.round(celcTemp);
-  let units = document.querySelector(".unit");
-  units.innerHTML = " °C";
-  console.log(fahrGlobal);
-  console.log(fahrGlobalHigh);
-  console.log(fahrGlobalLow);
-  let mainHigh = document.querySelector("#main-high");
-  mainHigh.innerHTML = `${Math.round(((fahrGlobalHigh - 32) * 5) / 9)}°`;
-}
-
-console.log(fahrGlobalHigh);
-
-function showFahr() {
-  let mainTemp = document.querySelector("#main-temp");
-  mainTemp.innerHTML = Math.round(fahrGlobal);
-  let units = document.querySelector(".unit");
-  units.innerHTML = " °F";
-}
-
-let celc = document.querySelector("#cTemp");
-celc.addEventListener("click", showCelc);
-let fahr = document.querySelector("#fTemp");
-fahr.addEventListener("click", showFahr);
