@@ -48,9 +48,7 @@ img.main {
   margin: 0 auto;
   object-fit: cover;
   object-position: -10px -30px;
-  filter: saturate(120%) contrast(130%) brightness(170%) opacity(70%);
-  /*position: relative;
-  top: -20px;*/
+  filter: saturate(120%) contrast(130%) brightness(170%);
 }
 
 img.forecast {
@@ -59,7 +57,7 @@ img.forecast {
   object-fit: cover;
   object-position: 0 -14px;
 
-  filter: saturate(120%) contrast(130%) brightness(170%) opacity(70%);
+  filter: saturate(120%) contrast(130%) brightness(170%);
 }
 
 a:hover {
@@ -131,6 +129,7 @@ a:hover {
 
 .description {
   font-weight: 300;
+  font-size: 36px;
 }
 
 .description:first-letter {
