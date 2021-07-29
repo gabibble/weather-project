@@ -1,9 +1,12 @@
 getCurrentPosition();
 
+let fahrGlobal = null;
+let fahrGlobalHigh = null;
+let fahrGlobalLow = null;
+
 function displayLocalTime() {
   let today = new Date();
   let date = today.getDate();
-  let year = today.getFullYear();
   let hour = today.getHours();
   let min = today.getMinutes();
   let ampm = "am";
@@ -135,23 +138,6 @@ localSearch.addEventListener("click", getCurrentPosition);
 let cityForm = document.querySelector("#city-form");
 cityForm.addEventListener("submit", citySearch);
 
-function showCelc() {
-  let mainTemp = document.querySelector("#main-temp");
-  let celcTemp = ((fahrGlobal - 32) * 5) / 9;
-  mainTemp.innerHTML = Math.round(celcTemp);
-  let units = document.querySelector(".unit");
-  units.innerHTML = " °C";
-  //let mainHigh = document.querySelector("#main-high");
-  //mainHigh.innerHTML = `${Math.round(((fahrGlobal - 32) * 5) / 9)}°`;
-}
-
-function showFahr() {
-  let mainTemp = document.querySelector("#main-temp");
-  mainTemp.innerHTML = Math.round(fahrGlobal);
-  let units = document.querySelector(".unit");
-  units.innerHTML = " °F";
-}
-
 function formatDay(timeStamp) {
   let date = new Date(timeStamp * 1000);
   let days = [
@@ -169,10 +155,14 @@ function formatDay(timeStamp) {
 
 function displayForecast(response) {
   let dailyForecast = response.data.daily;
-  let mainHigh = Math.round(response.data.daily[0].temp.max);
-  let mainLow = Math.round(response.data.daily[0].temp.min);
+  let fahrGlobalHigh = response.data.daily[0].temp.max;
+  let fahrGlobalLow = response.data.daily[0].temp.min;
   let highLow = document.querySelector("#high-low");
-  highLow.innerHTML = `<strong id="main-high">${mainHigh}°</strong>  <strong class="min" id = "main-low">${mainLow}°</strong>`;
+  highLow.innerHTML = `<strong id="main-high">${Math.round(
+    fahrGlobalHigh
+  )}°</strong>  <strong class="min" id = "main-low">${Math.round(
+    fahrGlobalLow
+  )}°</strong>`;
 
   let forecastElement = document.querySelector("#six-day-forecast");
   let forecastHTML = `<div class="row">`;
@@ -208,7 +198,27 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-let fahrGlobal = null;
+function showCelc() {
+  let mainTemp = document.querySelector("#main-temp");
+  let celcTemp = ((fahrGlobal - 32) * 5) / 9;
+  mainTemp.innerHTML = Math.round(celcTemp);
+  let units = document.querySelector(".unit");
+  units.innerHTML = " °C";
+  console.log(fahrGlobal);
+  console.log(fahrGlobalHigh);
+  console.log(fahrGlobalLow);
+  let mainHigh = document.querySelector("#main-high");
+  mainHigh.innerHTML = `${Math.round(((fahrGlobalHigh - 32) * 5) / 9)}°`;
+}
+
+console.log(fahrGlobalHigh);
+
+function showFahr() {
+  let mainTemp = document.querySelector("#main-temp");
+  mainTemp.innerHTML = Math.round(fahrGlobal);
+  let units = document.querySelector(".unit");
+  units.innerHTML = " °F";
+}
 
 let celc = document.querySelector("#cTemp");
 celc.addEventListener("click", showCelc);
