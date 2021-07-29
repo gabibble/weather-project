@@ -61,10 +61,7 @@ function displayForecastToday(response) {
   let mainTemp = Math.round(response.data.main.temp);
   let mainTempDisplay = document.querySelector("#main-temp");
   mainTempDisplay.innerHTML = mainTemp;
-  //let mainHigh = Math.round(response.data.main.temp_max);
-  //let mainLow = Math.round(response.data.main.temp_min);
-  //let highLow = document.querySelector("#high-low");
-  //highLow.innerHTML = `H <strong>${mainHigh}</strong>°  L <strong>${mainLow}</strong>°`;
+
   let humidity = Math.round(response.data.main.humidity);
   let wind = Math.round(response.data.wind.speed);
   let details = document.querySelector("#details");
@@ -174,16 +171,21 @@ function formatDay(timeStamp) {
 function displayForecast(response) {
   console.log(response.data.daily);
   let dailyForecast = response.data.daily;
+  let mainHigh = Math.round(response.data.daily[0].temp.max);
+  let mainLow = Math.round(response.data.daily[0].temp.min);
+  let highLow = document.querySelector("#high-low");
+  highLow.innerHTML = `<strong>${mainHigh}°</strong>  <strong class="min">${mainLow}°</strong>`;
 
   let forecastElement = document.querySelector("#six-day-forecast");
   let forecastHTML = `<div class="row">`;
-  dailyForecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
           <div class="col-2">
             <p class="day">${formatDay(forecastDay.dt)}</p>
-            <div class="icon week">
+            <div class="small-img-frame">
               <img
                 class="forecast"
                 src="http://openweathermap.org/img/wn/${
@@ -191,13 +193,16 @@ function displayForecast(response) {
                 }@2x.png"
               />
             </div>
-            <p class="day 1 temp">
-              <span class="max">${
+            <p class="temp">
+              <span class="max">${Math.round(
                 forecastDay.temp.max
-              }°</span> <span class="min">${forecastDay.temp.min}°</span>
+              )}°</span> <span class="min">${Math.round(
+          forecastDay.temp.min
+        )}°</span>
             </p>
           </div>
         `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;

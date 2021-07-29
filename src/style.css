@@ -53,7 +53,9 @@ a {
 }
 
 img.main {
+  display: block;
   width: 140px;
+  margin: 0 auto;
   object-fit: cover;
   object-position: -10px -30px;
   filter: saturate(120%) contrast(130%) brightness(170%) opacity(70%);
@@ -62,7 +64,11 @@ img.main {
 }
 
 img.forecast {
-  width: 93px;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: 0 -14px;
+
   filter: saturate(120%) contrast(130%) brightness(170%) opacity(70%);
 }
 
@@ -70,6 +76,9 @@ a:hover {
   color: #89fcd4;
 }
 
+.small-img-frame {
+  height: 76px;
+}
 .weather-icon-frame {
   max-width: 120px;
   max-height: 80px;
@@ -189,7 +198,9 @@ a:hover {
 }
 
 .temp {
+  text-align: center;
   font-weight: 400;
+  padding: 0 0 30px 0;
 }
 
 .min {
