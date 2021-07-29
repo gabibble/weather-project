@@ -46,9 +46,7 @@ function displayLocalTime() {
 displayLocalTime();
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=4b4875a4aa1ad99ee265ed1dc59a8d80&units=imperial`;
-  console.log(apiURL);
   axios.get(apiURL).then(displayForecast);
 }
 
@@ -122,7 +120,6 @@ function citySearch(event) {
 }
 
 function retrievePosition(position) {
-  console.log(position);
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
   let apiKey = "4b4875a4aa1ad99ee265ed1dc59a8d80";
@@ -144,6 +141,8 @@ function showCelc() {
   mainTemp.innerHTML = Math.round(celcTemp);
   let units = document.querySelector(".unit");
   units.innerHTML = " °C";
+  //let mainHigh = document.querySelector("#main-high");
+  //mainHigh.innerHTML = `${Math.round(((fahrGlobal - 32) * 5) / 9)}°`;
 }
 
 function showFahr() {
@@ -169,12 +168,11 @@ function formatDay(timeStamp) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let dailyForecast = response.data.daily;
   let mainHigh = Math.round(response.data.daily[0].temp.max);
   let mainLow = Math.round(response.data.daily[0].temp.min);
   let highLow = document.querySelector("#high-low");
-  highLow.innerHTML = `<strong>${mainHigh}°</strong>  <strong class="min">${mainLow}°</strong>`;
+  highLow.innerHTML = `<strong id="main-high">${mainHigh}°</strong>  <strong class="min" id = "main-low">${mainLow}°</strong>`;
 
   let forecastElement = document.querySelector("#six-day-forecast");
   let forecastHTML = `<div class="row">`;
@@ -183,7 +181,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-          <div class="col-2">
+          <div class="col">
             <p class="day">${formatDay(forecastDay.dt)}</p>
             <div class="small-img-frame">
               <img
@@ -194,9 +192,9 @@ function displayForecast(response) {
               />
             </div>
             <p class="temp">
-              <span class="max">${Math.round(
+              <span class="max" id ="daily-high">${Math.round(
                 forecastDay.temp.max
-              )}°</span> <span class="min">${Math.round(
+              )}°</span> <span class="min" id ="daily-low">${Math.round(
           forecastDay.temp.min
         )}°</span>
             </p>

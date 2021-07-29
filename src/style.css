@@ -5,20 +5,10 @@ body {
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
 }
-h1 {
-  font-size: 48px;
-  text-align: center;
-  margin: 0px;
-}
 
 h2 {
   font-size: 64px;
   margin: 0;
-}
-
-h3 {
-  font-size: 52px;
-  margin: 10px 0;
 }
 
 form {
@@ -87,8 +77,8 @@ a:hover {
 
 .container {
   max-width: 1000px;
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 10px;
+  padding: 20px;
   background-color: rgb(47, 47, 51);
 }
 
@@ -164,25 +154,14 @@ a:hover {
   padding: 15px 0;
 }
 .icon {
-  background-color: rgb(194, 194, 194);
   color: white;
   text-align: center;
-  margin: 0 auto;
+  margin: auto;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.today {
   max-width: 250px;
   height: 250px;
   padding: 35px;
   border-radius: 125px;
-}
-
-.week {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
-  margin: 10px auto;
 }
 
 .big {
@@ -207,30 +186,23 @@ a:hover {
   opacity: 50%;
 }
 .vhot {
-  background-color: #d38784;
   background: linear-gradient(to top, #ee9f87 0%, #d285a4 100%);
 }
 .hot {
-  background-color: #d285a4;
   background: linear-gradient(to top, #d285a4 0%, #c586bb 100%);
 }
 .warm {
-  background-color: #d186c5;
   background: linear-gradient(to top, #d186c5 0%, #bc87d0 100%);
 }
 .mild {
-  background-color: #bc87d0;
   background: linear-gradient(to top, #bc87d0 0%, #9d87d0 100%);
 }
 .cool {
-  background-color: #9d87d0;
   background: linear-gradient(to top, #9d87d0 0%, #8892cf 100%);
 }
 .cold {
-  background-color: #8892cf;
   background: linear-gradient(to top, #8892cf 0%, #89b1ce 100%);
 }
 .freeze {
-  background-color: #89b1ce;
   background: linear-gradient(to top, #89b1ce 0%, #d0e4f5 100%);
 }
